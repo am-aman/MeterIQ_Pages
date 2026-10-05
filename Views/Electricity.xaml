@@ -1,0 +1,908 @@
+﻿<UserControl x:Class="ElectricityMeterIQ1.Views.Electricity"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ElectricityMeterIQ1.Views"
+             mc:Ignorable="d">
+
+    
+    <!--main grid start--> 
+    <Grid Width="1540" Height="740" Background="Transparent" ClipToBounds="True">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="72*"></ColumnDefinition> <!--for heading , kpi, graph and power factor table and phase imbalance table--> 
+                <ColumnDefinition Width="28*"></ColumnDefinition> <!--for alerts and consumption comparison--> 
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"></RowDefinition> <!--for Electricity heading-->
+                    <RowDefinition Height="12*"></RowDefinition> <!--for 5 kpis  -->
+                    <RowDefinition Height="70*"></RowDefinition>    <!--for char , phase imbalance and power factor-->
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="Electricity"  FontSize="26" Foreground="#D4E7FA"/>
+
+                <Grid Grid.Row="1" Margin="0 5 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition> <!--kpis--> 
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" BorderBrush="#172E44"  BorderThickness="1" Background="#0d1b29" CornerRadius="20" Margin="0,0,5,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30*"></ColumnDefinition>
+                                <ColumnDefinition Width="70*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0" Margin="15 0 0 10" Background="#182B3D" BorderBrush="#182B3D" Height="50" Width="50" CornerRadius="8">
+                                <Image Source="/Assets/Icons/currentdemand2.png" Margin="10,0,10,0"/>
+                            </Border>
+
+                            <Grid Grid.Column="1" Margin="10 0 0 0">
+                                    <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Border Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <TextBlock Text="Current Demand" Foreground="#D4E7FA" FontSize="11" VerticalAlignment="Center" Margin="0 10 0 0"/>
+                                </Border>
+
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Border Grid.Column="0">
+                                        <TextBlock Text="2.58" FontSize="22" FontWeight="DemiBold" Foreground="#D4E7FA"/>
+                                    </Border>
+
+                                    <Border Grid.Column="1">
+                                        <TextBlock Text="MW" FontSize="11" FontWeight="Light" Foreground="#A3A3A3" VerticalAlignment="Top" Margin="-7 0 0 0" Padding="0 9 0 0" HorizontalAlignment="Left"/>
+                                    </Border>
+
+                                </Grid>
+
+                                <Grid Grid.Row="2">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="↑ 4.2% " Foreground="#7CB683" FontSize="10"/>
+                                        <TextBlock Text="vs Yesterday" Foreground="#A3A3A3" FontSize="10"/>
+                                     
+                                    </StackPanel>
+                                </Grid>
+
+
+
+                            </Grid>
+
+
+                        </Grid>
+
+                    </Border>
+
+                    <Border Grid.Column="1" BorderBrush="#172E44"  BorderThickness="1" Background="#0d1b29" CornerRadius="20" Margin="0,0,5,0">
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30*"></ColumnDefinition>
+                                <ColumnDefinition Width="70*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0" Margin="15 0 0 10" Background="#182B3D" BorderBrush="#182B3D" Height="50" Width="50" CornerRadius="8">
+                                <Image Source="/Assets/Icons/at-icons_arrow-turn-right-up.png" Margin="13,0,13,0"/>
+                            </Border>
+
+                            <Grid Grid.Column="1" Margin="10 0 0 0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Border Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <TextBlock Text="Peak Demand" Foreground="#D4E7FA" FontSize="11" VerticalAlignment="Center" Margin="0 10 0 0"/>
+                                </Border>
+
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Border Grid.Column="0">
+                                        <TextBlock Text="2.96" FontSize="22" FontWeight="DemiBold" Foreground="#D4E7FA"/>
+                                    </Border>
+
+                                    <Border Grid.Column="1">
+                                        <TextBlock Text="MW" FontSize="11" FontWeight="Light" Foreground="#A3A3A3" VerticalAlignment="Top" Margin="-7 0 0 0" Padding="0 9 0 0" HorizontalAlignment="Left"/>
+                                    </Border>
+
+                                </Grid>
+
+                                <Grid Grid.Row="2">
+                                    <TextBlock Text="Today 9:18 AM" Foreground="#54A9FF" FontSize="10"/>
+                                </Grid>
+
+
+
+                            </Grid>
+
+
+                        </Grid>
+
+
+                    </Border>
+
+                    <Border Grid.Column="2" BorderBrush="#172E44"  BorderThickness="1" Background="#0d1b29" CornerRadius="20" Margin="0,0,5,0">
+
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30*"></ColumnDefinition>
+                                <ColumnDefinition Width="70*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0" Margin="15 0 0 10" Background="#182B3D" BorderBrush="#182B3D" Height="50" Width="50" CornerRadius="8">
+                                <Image Source="/Assets/Icons/hugeicons_energy-ellipse.png" Margin="13,0,13,0"/>
+                            </Border>
+
+                            <Grid Grid.Column="1" Margin="10 0 0 0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Border Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <TextBlock Text="Total Energy" Foreground="#D4E7FA" FontSize="11" VerticalAlignment="Center" Margin="0 10 0 0"/>
+                                </Border>
+
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Border Grid.Column="0">
+                                        <TextBlock Text="2.58" FontSize="22" FontWeight="DemiBold" Foreground="#D4E7FA"/>
+                                    </Border>
+
+                                    <Border Grid.Column="1">
+                                        <TextBlock Text="MWh" FontSize="11" FontWeight="Light" Foreground="#A3A3A3" VerticalAlignment="Top" Margin="-7 0 0 0" Padding="0 9 0 0" HorizontalAlignment="Left"/>
+                                    </Border>
+
+                                </Grid>
+
+                                <Grid Grid.Row="2">
+                                    <TextBlock Text="Today" Foreground="#54A9FF" FontSize="10"/>
+                                </Grid>
+
+
+
+                            </Grid>
+
+
+                        </Grid>
+
+
+
+                    </Border>
+
+                    <Border Grid.Column="3" BorderBrush="#172E44"  BorderThickness="1"  Background="#0d1b29" CornerRadius="20" Margin="0,0,5,0">
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30*"></ColumnDefinition>
+                                <ColumnDefinition Width="70*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0" Margin="15 0 0 10" Background="#182B3D" BorderBrush="#182B3D" Height="50" Width="50" CornerRadius="8">
+                                <Image Source="/Assets/Icons/icon-park-outline_imbalance.png" Margin="13,0,13,0"/>
+                            </Border>
+
+                            <Grid Grid.Column="1" Margin="10 0 0 0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Border Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <TextBlock Text="Phase Imbalance" Foreground="#D4E7FA" FontSize="11" VerticalAlignment="Center" Margin="0 10 0 0"/>
+                                </Border>
+
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Border Grid.Column="0">
+                                        <TextBlock Text="02.8" FontSize="22" FontWeight="DemiBold" Foreground="#D4E7FA"/>
+                                    </Border>
+
+                                    <Border Grid.Column="1">
+                                        <TextBlock Text="%" FontSize="11" FontWeight="Light" Foreground="#A3A3A3" VerticalAlignment="Top" Margin="-7 0 0 0" Padding="0 9 0 0" HorizontalAlignment="Left"/>
+                                    </Border>
+
+                                </Grid>
+
+                                <Grid Grid.Row="2">
+                                    <TextBlock Text="5 Affected" Foreground="#FFB82B" FontSize="10"/>
+                                </Grid>
+
+
+
+                            </Grid>
+
+
+                        </Grid>
+
+
+                    </Border>
+
+                    <Border Grid.Column="4" BorderBrush="#172E44"  BorderThickness="1" Background="#0d1b29" CornerRadius="20">
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30*"></ColumnDefinition>
+                                <ColumnDefinition Width="70*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0" Margin="15 0 0 10" Background="#182B3D" BorderBrush="#182B3D" Height="50" Width="50" CornerRadius="8">
+                                <Image Source="/Assets/Icons/hugeicons_hydro-power.png" Margin="13,0,13,0"/>
+                            </Border>
+
+                            <Grid Grid.Column="1" Margin="5 0 0 0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Border Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <TextBlock Text="Power factor (Avg)" Foreground="#D4E7FA" FontSize="11" VerticalAlignment="Center" Margin="0 10 0 0"/>
+                                </Border>
+
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Border Grid.Column="0">
+                                        <TextBlock Text="0.82" FontSize="22" FontWeight="DemiBold" Foreground="#D4E7FA"/>
+                                    </Border>
+
+                                    <Border Grid.Column="1">
+                                        <TextBlock Text="" FontSize="11" FontWeight="Light" Foreground="#A3A3A3" VerticalAlignment="Top" Margin="-7 0 0 0" Padding="0 9 0 0" HorizontalAlignment="Left"/>
+                                    </Border>
+
+                                </Grid>
+
+                                <Grid Grid.Row="2">
+                                    <TextBlock Text="3 below threshold" Foreground="#FFB82B" FontSize="10"/>
+                                </Grid>
+
+
+
+                            </Grid>
+
+
+                        </Grid>
+
+
+                    </Border>
+                </Grid>
+
+                <Border Grid.Row="2" Margin="0 10 0 5"> <!--for chart , phase imabalance and power factor-->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"></ColumnDefinition> <!--for char and power factor-->
+                            <ColumnDefinition Width="1*"></ColumnDefinition> <!--for phase imabalance--> 
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"></RowDefinition>
+                                <RowDefinition Height="1.1*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Border Grid.Row="0" BorderBrush="#183046" BorderThickness="1" Background="#101f2e" CornerRadius="20" Margin="0 0 13 0">
+
+                                <Grid Margin="20 16 20 12">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid Grid.Row="0" Margin="0 0 0 14">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Border Grid.Column="0" Background="#182b3d" CornerRadius="8" Width="50" Padding="7">
+                                            <Image Source="/Assets/Icons/codicon_graph-line.png" Margin="10,10,10,10" />
+                                        </Border>
+
+                                        <StackPanel Grid.Column="1" Margin="12 0 0 0" VerticalAlignment="Center">
+                                            <TextBlock Text="Demand Vs Time" Foreground="White" FontSize="14" FontWeight="SemiBold"/>
+                                            <TextBlock Text="Actual demand vs previous comparable period" Foreground="#95CBFF" FontSize="10"/>
+                                        </StackPanel>
+
+                                        <!-- legend -->
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Top">
+                                            <Rectangle Width="14" Height="3" RadiusX="1.5" RadiusY="1.5" Fill="#19E3B1" VerticalAlignment="Center"/>
+                                            <TextBlock Text="Today" Foreground="#B8C4D0" FontSize="10" Margin="4 0 12 0"/>
+                                            <Rectangle Width="14" Height="3" RadiusX="1.5" RadiusY="1.5" Fill="#2F9BFF" VerticalAlignment="Center"/>
+                                            <TextBlock Text="Yesterday" Foreground="#B8C4D0" FontSize="10" Margin="4 0 0 0"/>
+                                        </StackPanel>
+                                    </Grid>
+                                    
+                                    
+
+
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <!-- Y axis labels -->
+                                        <UniformGrid Grid.Row="0" Grid.Column="0" Rows="4" Margin="0 0 10 0">
+                                            <TextBlock Text="2.6" Foreground="#B8C4D0" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                                            <TextBlock Text="2.0" Foreground="#B8C4D0" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                                            <TextBlock Text="1.4" Foreground="#B8C4D0" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                                            <TextBlock Text="0.8" Foreground="#B8C4D0" FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                                        </UniformGrid>
+
+                                        <!-- plot area with left + bottom axis lines -->
+                                        <Border Grid.Row="0" Grid.Column="1" BorderBrush="#2A3F55" BorderThickness="1 0 0 1">
+                                            <Canvas x:Name="PlotHost" ClipToBounds="True" SizeChanged="PlotHost_SizeChanged">
+                                                <Path Data="{Binding DemandChart.TodayArea}" StrokeThickness="0">
+                                                    <Path.Fill>
+                                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                            <GradientStop Color="#5519E3B1" Offset="0"/>
+                                                            <GradientStop Color="#0019E3B1" Offset="1"/>
+                                                        </LinearGradientBrush>
+                                                    </Path.Fill>
+                                                </Path>
+                                                <Path Data="{Binding DemandChart.YesterdayLine}" Stroke="#2F9BFF" StrokeThickness="2" StrokeLineJoin="Round"/>
+                                                <Path Data="{Binding DemandChart.TodayLine}" Stroke="#19E3B1" StrokeThickness="2" StrokeLineJoin="Round"/>
+                                            </Canvas>
+                                        </Border>
+
+                                       
+                                        <UniformGrid Grid.Row="1" Grid.Column="1" Columns="6" Margin="0 6 0 0">
+                                            <TextBlock Text="00:00" Foreground="#B8C4D0" FontSize="10" HorizontalAlignment="Left"/>
+                                            <TextBlock Text="06:00" Foreground="#B8C4D0" FontSize="10" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="12:00" Foreground="#B8C4D0" FontSize="10" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="18:00" Foreground="#B8C4D0" FontSize="10" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="24:00" Foreground="#B8C4D0" FontSize="10" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="32:00" Foreground="#B8C4D0" FontSize="10" HorizontalAlignment="Right"/>
+                                        </UniformGrid>
+                                    </Grid>
+                                    
+                                    
+                                 
+                                    
+                                    
+                                </Grid>
+                            </Border>
+
+                            <Border Grid.Row="1" BorderBrush="#183046" BorderThickness="1" Background="#101f2e" CornerRadius="20" Margin="0 10 13 0">
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3*"></RowDefinition>
+                                        <RowDefinition Height="10*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid Grid.Row="0" Margin="-40 20 0 0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                                            <ColumnDefinition Width="4*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Border Grid.Column="0" Background="#182b3d" CornerRadius="8" Width="50" Padding="7">
+                                            <Image Source="/Assets/Icons/akar-icons_thunder.png" Margin="10,5,10,5"/>
+                                        </Border>
+                                        <TextBlock Grid.Column="1" Text="Power Factor" FontSize="15" Foreground="#D4E7FA" Margin="-40 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="DemiBold"/>
+                                    </Grid>
+
+                                    <Grid Grid.Row="1" Margin="10 15 15 0">
+                                        <Grid.Resources>
+                                            <Style TargetType="TextBlock" x:Key="TableText">
+                                                <Setter Property="Foreground" Value="White"/>
+                                                <Setter Property="FontSize" Value="12"/>
+                                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                            </Style>
+                                        </Grid.Resources>
+                                        
+                                        
+
+                                        <StackPanel>
+                                            <!-- header -->
+                                            <Grid Margin="0,0,0,8">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="2*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Style="{StaticResource TableText}" Foreground="#4DA3FF" Grid.Column="0" Text="MDB" FontWeight="DemiBold"/>
+                                                <TextBlock Style="{StaticResource TableText}" Foreground="#4DA3FF" Grid.Column="1" Text="PF"     HorizontalAlignment="Center" FontWeight="DemiBold"/>
+                                                <TextBlock Style="{StaticResource TableText}" Foreground="#4DA3FF" Grid.Column="2" Text="Demand" HorizontalAlignment="Center" FontWeight="DemiBold"/>
+                                                <TextBlock Style="{StaticResource TableText}" Foreground="#4DA3FF" Grid.Column="3" Text="Energy" HorizontalAlignment="Center" FontWeight="DemiBold"/>
+                                                <TextBlock Style="{StaticResource TableText}" Foreground="#4DA3FF" Grid.Column="4" Text="Scope"  HorizontalAlignment="Right" FontWeight="DemiBold"/>
+                                            </Grid>
+                                            
+                                            
+                                            
+                                                <ItemsControl ItemsSource="{Binding PowerFactorRows}">
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Border Height="32" BorderBrush="#1B2E42" BorderThickness="0 0 0 1">
+                                                                <Grid>
+                                                                    <Grid.ColumnDefinitions>
+                                                                        <ColumnDefinition Width="2*"/>
+                                                                        <ColumnDefinition Width="*"/>
+                                                                        <ColumnDefinition Width="*"/>
+                                                                        <ColumnDefinition Width="*"/>
+                                                                        <ColumnDefinition Width="*"/>
+                                                                    </Grid.ColumnDefinitions>
+
+                                                                    <TextBlock Style="{StaticResource TableText}" Grid.Column="0" Text="{Binding Mdb}"/>
+                                                                    <TextBlock Style="{StaticResource TableText}" Grid.Column="1" Text="{Binding Pf, StringFormat=0.00}" Foreground="Orange"   HorizontalAlignment="Center"/>
+                                                                    <TextBlock Style="{StaticResource TableText}" Grid.Column="2" Text="{Binding Demand}" HorizontalAlignment="Center"/>
+                                                                    <TextBlock Style="{StaticResource TableText}" Grid.Column="3" Text="{Binding Energy}" HorizontalAlignment="Center"/>
+                                                                    <TextBlock Style="{StaticResource TableText}" Grid.Column="4" Text="{Binding Scope}" HorizontalAlignment="Right"/>
+                                                                </Grid>
+                                                            </Border>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            
+                                        </StackPanel>
+                                    </Grid>
+
+                                </Grid>
+                            </Border>
+
+                        </Grid>
+
+                        <Border Grid.Column="1" BorderBrush="#183046" BorderThickness="1" Background="#101f2e" CornerRadius="20" Margin="0 0 0 0">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"></RowDefinition>
+                                <RowDefinition Height="8*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+
+                                <Grid Grid.Row="0" Margin="10 20 0 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="20*"></ColumnDefinition>
+                                        <ColumnDefinition Width="40*"></ColumnDefinition>
+                                        <ColumnDefinition Width="30*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Border Grid.Column="0" Background="#182b3d" CornerRadius="8" Width="50" Padding="7" HorizontalAlignment="Left">
+                                        <Image Source="/Assets/Icons/icon-park-outline_imbalance.png" Margin="7 0 7 0"/>
+                                    </Border>
+                                    <TextBlock Grid.Column="1" Text="Phase Imbalance" FontSize="15" Foreground="#D4E7FA" Margin="-20 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="DemiBold"/>
+                                    <TextBlock Grid.Column="2" Text="3 meter(s) require attention" FontSize="9" Foreground="#D4E7FA" Margin="0 1 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Regular"/>
+
+                                </Grid>
+
+                                <Grid Grid.Row="1" Margin="10 10 15 0">
+                                    <Grid.Resources>
+                                        <Style TargetType="TextBlock" x:Key="TableText">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Setter Property="FontSize" Value="10"/>
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                        </Style>
+                                    </Grid.Resources>
+
+                                    <StackPanel>
+                                        <!-- header -->
+                                        <Grid Margin="0,0,0,8">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition Width="1.5*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="1.5*"/>
+
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Style="{StaticResource TableText}" Foreground="#4DA3FF" Grid.Column="0" Text="Meter" FontWeight="DemiBold"/>
+                                            <TextBlock Style="{StaticResource TableText}" Foreground="#4DA3FF" Grid.Column="1" Text="Worst Phase" HorizontalAlignment="Center" FontWeight="DemiBold" Margin="15 0 0 0"/>
+                                            <TextBlock Style="{StaticResource TableText}" Foreground="#4DA3FF" Grid.Column="2" Text="V Imb" HorizontalAlignment="Center" FontWeight="DemiBold" Margin="17 0 0 0"/>
+                                            <TextBlock Style="{StaticResource TableText}" Foreground="#4DA3FF" Grid.Column="3" Text="I Imb" HorizontalAlignment="Center" Margin="50 0 0 0" FontWeight="DemiBold"/>
+                                        </Grid>
+
+                                        
+
+                                        <ItemsControl ItemsSource="{Binding PhaseImbalanceRows}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Height="34" BorderBrush="#1B2E42" BorderThickness="0 0 0 1">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="2*"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                            </Grid.ColumnDefinitions>
+
+                                                            <TextBlock Style="{StaticResource TableText}" Grid.Column="0" Text="{Binding Meter}" VerticalAlignment="Center"/>
+                                                            <TextBlock Style="{StaticResource TableText}" Grid.Column="1" Text="{Binding WorstPhase}" Foreground="Orange" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                            <TextBlock Style="{StaticResource TableText}" Grid.Column="2" Text="{Binding VImb, StringFormat={}{0:0.0}%}" Foreground="{Binding VImbBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                            <TextBlock Style="{StaticResource TableText}" Grid.Column="3" Text="{Binding IImb, StringFormat={}{0:0.0}%}" Foreground="{Binding IImbBrush}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                                        </Grid>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </StackPanel>
+                                </Grid>
+
+
+                            </Grid>
+                        </Border>
+
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Column="1" Margin="5,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45*"></RowDefinition>
+                    <RowDefinition Height="55*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" BorderBrush="#183046" BorderThickness="1" Background="#101f2e" CornerRadius="20" Margin="5 0 5 5">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2.5*"></RowDefinition>
+                            <RowDefinition Height="10*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0" Margin="0 20 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20*"></ColumnDefinition>
+                                <ColumnDefinition Width="80*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0" Background="#182b3d" CornerRadius="8" Width="50" Padding="13">
+                                <Image Source="/Assets/Icons/famicons_notifications-outline.png"/>
+                            </Border>
+                            <TextBlock Grid.Column="1" FontSize="15" Text="Alerts" FontWeight="DemiBold" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#D4E7FA" Margin="-5 0 0 0"/>
+                        </Grid>
+                        
+                        
+                        
+                        
+                        <Grid Grid.Row="1" Margin="20 20 20 16">
+
+                            <ScrollViewer VerticalScrollBarVisibility="Auto"  HorizontalScrollBarVisibility="Disabled">
+
+                                <ScrollViewer.Resources>
+                                   <Style TargetType="ScrollBar">
+                                        <Setter Property="Width" Value="8"/>
+                                        <Setter Property="MinWidth" Value="0"/>
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ScrollBar">
+                                                    <Grid Background="Transparent">
+                                                        <Track x:Name="PART_Track" IsDirectionReversed="True">
+                                                            <Track.Thumb>
+                                                                <Thumb>
+                                                                    <Thumb.Template>
+                                                                        <ControlTemplate TargetType="Thumb">
+                                                                            <Border Width="2" HorizontalAlignment="Center"
+                                                Background="#3A5573" CornerRadius="1"/>
+                                                                        </ControlTemplate>
+                                                                    </Thumb.Template>
+                                                                </Thumb>
+                                                            </Track.Thumb>
+                                                        </Track>
+                                                    </Grid>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ScrollViewer.Resources>
+                                
+                                
+                                <ItemsControl ItemsSource="{Binding AlertItems}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Background="#0D1B29" BorderBrush="#172E44" BorderThickness="1"
+                        CornerRadius="12" Padding="14 10" Margin="0 0 0 10">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <!-- title -->
+                                                    <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Title}"
+                                   Foreground="White" FontSize="12" FontWeight="Medium"/>
+
+                                                   
+                                                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Severity}"
+                                   FontSize="12" HorizontalAlignment="Right">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="Foreground" Value="#8A97A6"/>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding Severity}" Value="Critical">
+                                                                        <Setter Property="Foreground" Value="#FF4D4F"/>
+                                                                    </DataTrigger>
+                                                                    <DataTrigger Binding="{Binding Severity}" Value="Warning">
+                                                                        <Setter Property="Foreground" Value="#FFA940"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+
+                                                    <!-- description -->
+                                                    <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                                   Text="{Binding Description}" Margin="0 6 0 0"
+                                   Foreground="#C9D3DE" FontSize="10"/>
+
+                                                    <!-- detail + time -->
+                                                    <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Detail}"
+                                   Margin="0 6 0 0" Foreground="White" FontSize="10"
+                                   VerticalAlignment="Bottom"/>
+                                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding TimeAgo}"
+                                   Foreground="#6E7C8B" FontSize="9"
+                                   HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </ScrollViewer>
+                        </Grid>
+                        
+                        
+                    </Grid>
+
+                    
+                </Border>
+
+                <Border Grid.Row="1" BorderBrush="#183046" BorderThickness="1" Background="#101f2e" CornerRadius="20" Margin="5,5,5,10">
+
+                   
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="17*"></RowDefinition>
+                            <RowDefinition Height="20*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="40*" ></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0" Margin="5 20 0 4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20*"></ColumnDefinition>
+                                <ColumnDefinition Width="80*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0" Background="#182b3d" CornerRadius="8" Width="50" Padding="13">
+                                <Image Source="/Assets/Icons/boxicons_compare(1).png"/>
+                            </Border>
+                            <TextBlock Grid.Column="1" FontSize="15" Text="Consumption Comparison" FontWeight="DemiBold" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#D4E7FA" Margin="-5 0 0 0"/>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Text="Compare by" Foreground="#7A848D" Margin="20 15 0 0"/>
+
+                            <Grid Grid.Row="1" Margin="0 4 0 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="0" CornerRadius="15" Background="#182B3D" Margin="20 0 5 0" Width="60" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                    <TextBlock Text=" Period " HorizontalAlignment="Center" FontSize="11" Foreground="#54A9FF" Padding="3 7 0 5"/>
+                                </Border>
+                                <Border Grid.Column="1" CornerRadius="15" Background="#0e1c2a" Margin="0 0 5 0" Width="50" VerticalAlignment="Center" HorizontalAlignment="Left"  BorderBrush="#7A848D" BorderThickness="0.5">
+                                    <TextBlock Text="Meter" HorizontalAlignment="Center" FontSize="11" Foreground="#7A848D" Padding="0 7 0 5"/>
+                                </Border>
+                                <Border Grid.Column="2" CornerRadius="15" Background="#0e1c2a" Margin="0 0 10 0" Width="80" VerticalAlignment="Center" HorizontalAlignment="Left"  BorderBrush="#7A848D" BorderThickness="0.5">
+                                    <TextBlock Text="Normalized" HorizontalAlignment="Center" FontSize="11" Foreground="#7A848D" Padding="3 7 0 5"/>
+                                </Border>
+                                <Border Grid.Column="3" CornerRadius="15" Background="#0e1c2a" Margin="0 0 10 0" Width="135" VerticalAlignment="Center" HorizontalAlignment="Right"  BorderBrush="#7A848D" BorderThickness="0.5">
+                                    <TextBlock Text="Expected Consumption" HorizontalAlignment="Center" FontSize="11" Foreground="#7A848D" Padding="0 7 0 5"/>
+                                </Border>
+
+
+                            </Grid>
+
+
+                        </Grid>
+
+                        <Grid Grid.Row="2" Margin="0 10 0 0">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Text="Metre" FontSize="13" FontWeight="Regular" Foreground="#7A848D" VerticalAlignment="Center" Margin="20 0 0 0"/>
+
+
+                                    <ComboBox Style="{StaticResource DarkComboBox}" Width="170" Margin="20,23,0,0"
+                                          HorizontalAlignment="Left" Grid.RowSpan="2">
+                                        <ComboBoxItem Content="Vox Cinemas" IsSelected="True"/>
+                                        <ComboBoxItem Content="Fun Zone"/>
+                                        <ComboBoxItem Content="Food Court"/>
+                                        <ComboBoxItem Content="Hypermarket GF"/>
+                                    </ComboBox>
+
+                                </Grid>
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="Compare" FontSize="13" FontWeight="Regular" Foreground="#7A848D" VerticalAlignment="Center" Margin="0,0,66,0"/>
+
+
+                                    <ComboBox Style="{StaticResource DarkComboBox2}" Width="190" Margin="0,23,0,0"
+                                          HorizontalAlignment="Left" Grid.RowSpan="2">
+                                        <ComboBoxItem Content="This Month Vs Previous" IsSelected="True"/>
+                                        <ComboBoxItem Content="Last Month Vs This Month" />
+                                        <ComboBoxItem Content="Last Quarter Vs This Quater"/>
+                                        <ComboBoxItem Content="Last Year Vs This Year" />
+                                    </ComboBox>
+
+                                </Grid>
+                            </Grid>
+
+
+                        </Grid>
+                        <Grid Grid.Row="3">
+
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="190"></ColumnDefinition>                                
+                                <ColumnDefinition  Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0" CornerRadius="20" Margin="31,10,22,10">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="/Assets/Images/canbonpercentage.png"/>
+                                </Border.Background>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Grid.Row="0" Text="Consumption&#10;Reduction" Foreground="#D4E7FA" FontSize="10" Margin="10 10 0 0" />
+
+                                    <TextBlock Grid.Row="1" Text="-7.4%" FontSize="35" FontWeight="SemiBold" Foreground="#7CB683" Margin="10 0 0 0"/>
+
+                                    <TextBlock Grid.Row ="2" Text="7.42 MWh current week&#10;8.01 MWh previous week&#10;Difference: −0.59 MWh" Foreground="#B7C9DC" Margin="10 5 0 0" LineHeight="10" FontSize="8"/>
+
+
+                                </Grid>
+                            </Border>
+
+                            <Grid Grid.Column="1" Margin="-10 30 30 30">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Column="0" Text="Previous Week" FontSize="9" Foreground="#7A848D" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                                    <TextBlock Grid.Column="1" Text="8.01 MWh" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="9" Foreground="White"/>
+                                </Grid>
+
+                                <Grid Grid.Row="1">
+                                    <Border Background="#0d1b29" CornerRadius="5" Height="8" Margin="0 0 0 0">
+                                        <Border Background="#579ADC" Width="199" HorizontalAlignment="Left" CornerRadius="5" Height="8" />
+                                    </Border>
+                                </Grid>
+
+                                <Grid Grid.Row="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Column="0" Text="Current Week" FontSize="9" Foreground="#7A848D" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                                    <TextBlock Grid.Column="1" Text="7.41 MWh" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="9" Foreground="White"/>
+                                </Grid>
+
+                                <Grid Grid.Row="3">
+                                    <Border Background="#0d1b29" CornerRadius="5" Height="8" Margin="0 0 0 0">
+                                        <Border Background="#7CB683" Width="150" HorizontalAlignment="Left" CornerRadius="5" Height="8" />
+                                    </Border>
+                                </Grid>
+
+                                <Grid Grid.Row="4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Column="0" Text="Current Demand" FontSize="9" Foreground="#7A848D" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                                    <TextBlock Grid.Column="1" Text="-4.01" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="9" Foreground="White"/>
+                                </Grid>
+
+                                <Grid Grid.Row="5">
+                                    <Border Background="#0d1b29" CornerRadius="5" Height="8" Margin="0 0 0 0">
+                                        <Border Background="#9EB7CF" Width="150" HorizontalAlignment="Left" CornerRadius="5" Height="8" />
+                                    </Border>
+                                </Grid>
+
+
+                            </Grid>
+
+
+                        </Grid>
+
+                    </Grid>
+
+                   
+
+                </Border>
+
+
+            </Grid>
+        </Grid>
+
+    </Grid>
+</UserControl>
